@@ -1,18 +1,95 @@
+var pos;
+var map;
+var bounds;
+var service;
+var zip;
+var infoWindow;
+var currentInfoWindow;
 function initialize() { 
-    geocoder = new google.maps.Geocoder();
+    var geocoder = new google.maps.Geocoder();
+    infoWindow = new google.maps.InfoWindow;
+    currentInfoWindow = infoWindow;
+    bounds = new google.maps.LatLngBounds();
     map = new google.maps.Map(document.getElementById("map1"), {
-      zoom: 2,
-      center: {lat: 0, lng: 0},
-    });     
+      zoom: 4.5,
+      center: {lat: 38, lng: -95.7}
+    });    
     document.getElementById("submit").addEventListener("click", () => {
       geocodeAddress(geocoder, map);
     });
-  
+}
+
+function geocodeAddress(geocoder, resultsMap) {
+  const address = document.getElementById("zip").value; 
+  geocoder.geocode({'address': address}, function(results, status) {
+    if (status === google.maps.places.PlacesServiceStatus.OK && results) {
+      zip = results[0].geometry.location;
+      resultsMap.setCenter(zip);
+      resultsMap.setZoom(13);  
+      bounds.extend(zip); 
+      getNearbyPlaces(zip);
+    }
+    else {
+      zip = {lat: 40, lgn: -70};
+      map = new google.maps.Map(document.getElementById('map1'), {
+        center: pos,
+        zoom: 15
+      });
+      getNearbyPlaces(zip);
+    }
+  });
+}
+
+function getNearbyPlaces(position) {
+  let request = {
+    location: position,
+    rankBy: google.maps.places.RankBy.DISTANCE,
+    keyword: 'dermatologist'
+  };
+
+  service = new google.maps.places.PlacesService(map);
+  service.nearbySearch(request, callback);
+}
+
+function callback(results, status) {
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    createMarkers(results);
   }
-  function geocodeAddress(geocoder, resultsMap) {
-    const address = document.getElementById("zip").value; 
-    geocoder.geocode({'address': address}, function(results) {
-      resultsMap.setCenter(results[0].geometry.location);
-      resultsMap.setZoom(13);
+}
+
+function createMarkers(places) {
+  places.forEach(place => {
+    let marker = new google.maps.Marker({
+      position: place.geometry.location,
+      map: map,
+      title: place.name
     });
+
+    google.maps.event.addListener(marker, 'click', () => {
+      let request = {
+        placeId: place.place_id,
+        fields: ['name', 'formatted_address', 'geometry', 'website']
+      };
+      service.getDetails(request, (placeResult, status) => {
+        showDetails(placeResult, marker, status)
+      });
+    }); 
+    bounds.extend(place.geometry.location);
+  });      
+  map.fitBounds(bounds);
+}
+
+function showDetails(placeResult, marker, status) {
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    var placeInfowindow = new google.maps.InfoWindow();
+    placeInfowindow.setContent("<div><strong>" 
+      + placeResult.name 
+      + "<br>" + placeResult.formatted_address 
+      + "<br>"+ placeResult.website 
+      + "</strong><br>"
+    );
+    placeInfowindow.open(marker.map, marker);
+    currentInfoWindow.close();
+    currentInfoWindow = placeInfowindow;
   }
+}
