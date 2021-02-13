@@ -22,30 +22,43 @@
     </div>
 
     <div class="submit-form">
-      <form action="SCRIPT THAT DOES WHATEVER WHEN SUBMIT IS CLICKED" method="post" enctype="text/plain">  <!--INPUT FORM-->
+      <!-- (add back to form later if needed: action="SCRIPT THAT DOES WHATEVER WHEN SUBMIT IS CLICKED" method="post" enctype="text/plain" -->
+      <form>  <!--INPUT FORM-->
         <label>Select your image that you want to upload:</label>
         <br>
-        <input type="file" name="imageFile" accept="image/*">
+        <input type="file" name="imageFile" accept="image/*" id="image">
         <br>
-        <input type="submit">
+        <input type="submit" onclick="getAcneLevel()">
       </form>
+      <script type = "text/javascript" src="test.js">
+      </script>
     </div>
     
-    <div class="results">
+    <div class="results"> 
       
     </div> 
 
 
-    <p> Enter your zip code to fnd nearby treatment options.</p><br>
+    <p> Enter your zip code to find nearby treatment options.</p><br>
+    <div class="submit-form">
+      <form>
+        <label for="zip">Zip Code:</label>
+        <br>
+        <input type="text" id="zip">
+        <br>
+        <input type="button" id="submit" value="Submit">
+        
+        <script src="index.js"></script>
 
-    <form>
-      <label for="zip">Zip Code:</label>
-      <input type="text" id="zip">
-    </form>
-    <script>
-      var zip = document.getElementById("zip").value;
-      localStorage.setItem("zip", zip);
-    </script>
+        <div id="map1"></div>
+        <script
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNn7YpOt1n3gSmIKXD8IfyLWWKVE1ChyQ&callback=initialize" 
+          async
+        ></script>
+        
+      </form>
+    </div>
+
     <script src="index.js" charset="utf-8"></script>
     
   </body>

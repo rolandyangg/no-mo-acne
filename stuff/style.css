@@ -1,5 +1,5 @@
 body {
-    background-color:rgb(170, 217, 255)
+    background-color:rgb(183, 255, 170)
 }
 menu-container{
     background-color: aqua;
@@ -24,5 +24,19 @@ h1{
     text-decoration: none;
     font-size: 18px;
 }
+
+#map1 {
+    margin: auto;
+    height: 600px;
+    width: 80%;
+  }
+
+#map2 {
+    margin: auto;
+    height: 600px;
+    width: 80%;
+}
+
+
 
 

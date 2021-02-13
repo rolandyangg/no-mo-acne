@@ -2,24 +2,7 @@
 <html lang="en" dir="ltr">
   
   <head>
-    <style type="text/css">
-      #map {
-        height: 400px;
-        width: 90%;
-      }
-    </style>
-    <script>
-      var zip = localStorage["zip"];
-      localStorage.removeItem("zip");
-      function initialize() {
-        let map;
-        const userLoc = { lat: 0, lng: 0 };
-        map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 4,
-          center: userLoc,
-        });
-      }
-    </script>
+    <script src="maps.js"></script>
     
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css"> 
@@ -34,7 +17,12 @@
       <a href="#About">About</a>
     </div>
 
-    <div id="map"></div>
+    <div id="floating-panel">
+      <input id="address" type="textbox" value="08807" />
+      <input id="submit" type="button" value="Geocode" />
+    </div>
+
+    <div id="map2"></div>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNn7YpOt1n3gSmIKXD8IfyLWWKVE1ChyQ&v=3&callback=initialize" 
       async
