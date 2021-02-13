@@ -1,0 +1,29 @@
+body {
+    background-color:rgb(170, 217, 255)
+}
+menu-container{
+    background-color: aqua;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1{
+    text-align: center;
+}
+
+.topnav {
+    background-color: rgb(182, 157, 252);
+    text-align: center;
+}
+
+.topnav a{
+    display: inline-block;
+    background-color: rgb(166, 133, 255);
+    text-align: center;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 18px;
+}
+location{
+    text-align:center;
+}
