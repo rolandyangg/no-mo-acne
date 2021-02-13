@@ -1,67 +1,129 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  
-  <head>
-    <meta charset="utf-8">
-    <title>SCREW acne</title>
-    <link rel="stylesheet" href="style.css"> 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type = "text/javascript" src="test.js"></script>
-  </head> 
 
-  <body>
-    <h1>Home</h1>
+<head>
+  <meta charset="utf-8">
+  <title>No Mo Acne</title>
 
-    <div class="topnav">
-      <a class="active" href="#Home"
-      >Home</a>
-      <a href="maps.html">Maps</a>
-      <a href="#About">About</a>  
+  <!-- bootstrap css -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+  <!-- google api -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- stylesheet -->
+  <link rel="stylesheet" href="styless.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <section id="header">
+    <div class="container-fluid">
+      <nav class="navbar navbar-light bg-light">
+        <a href="#" class="navbar-brand">No Mo Acne</a>
+        <ul class="navbar-nav">
+          <li class="navbar-item">
+            <a href="#" class="nav-link">About</a>
+          </li>
+          <li class="navbar-item">
+            <a href="#" class="nav-link">Info</a>
+          </li>
+        </ul>
+      </nav>
+
     </div>
+  </section>
 
-    <div>
-      <p> Upload a picture of your face below to see if treatment can be 
-        beneficial for you.</p>
+  <!-- INSTRUCTIONS -->
+  <div>
+    <br>
+    <p> <b>Upload a picture of your face below to see if treatment can be
+        beneficial for you.</b></p>
+  </div>
+
+  <!-- FORM -->
+  <div class="submit-form">
+    <!-- (add back to form later if needed: action="SCRIPT THAT DOES WHATEVER WHEN SUBMIT IS CLICKED" method="post" enctype="text/plain" -->
+    <label>Select your image that you want to upload:</label>
+    <br>
+    <input type="file" name="imageInput" accept="image/*" id="imageInput">
+    <br>
+    <input type="button" onclick="upload()" value="Analyze">
+  </div>
+
+  <div class="image-preview" id="imagePreview">
+    <img src="" alt="" class="image-preview__image">
+    <span class="image-preview__default-text">Please Upload A Image</span>
+  </div>
+
+  <br>
+
+  <!-- RESULTS -->
+  <div class="results">
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="pills-results-tab" data-bs-toggle="pill" data-bs-target="#pills-results"
+          type="button" role="tab" aria-controls="pills-results" aria-selected="true">Results</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-diagnosis-tab" data-bs-toggle="pill" data-bs-target="#pills-diagnosis"
+          type="button" role="tab" aria-controls="pills-diagnosis" aria-selected="false">Diagnosis</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-treatment-tab" data-bs-toggle="pill" data-bs-target="#pills-treatment"
+          type="button" role="tab" aria-controls="pills-treatment" aria-selected="false">Treatment</button>
+      </li>
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade show active" id="pills-results" role="tabpanel" aria-labelledby="pills-results-tab">Your
+        results are...</div>
+      <div class="tab-pane fade" id="pills-diagnosis" role="tabpanel" aria-labelledby="pills-diagnosis-tab">Your
+        diagnosis
+        is...</div>
+      <div class="tab-pane fade" id="pills-treatment" role="tabpanel" aria-labelledby="pills-treatment-tab">Some
+        recommended treatments are...</div>
     </div>
+  </div>
 
-    <div class="submit-form">
-      <!-- (add back to form later if needed: action="SCRIPT THAT DOES WHATEVER WHEN SUBMIT IS CLICKED" method="post" enctype="text/plain" -->
-      <label>Select your image that you want to upload:</label>
+  <!-- MAP -->
+  <br>
+  <p> <b>Enter your zip code to find nearby treatment options.</b></p><br>
+  <div class="submit-form">
+    <form>
+      <label for="zip">Zip Code:</label>
       <br>
-      <input type="file" name="imageInput" accept="image/*" id="imageInput">
+      <input type="text" id="zip">
       <br>
-      <input type="button" onclick="upload()" value="Analyze">
-    </div>
-    
-    <div class="results"> 
-      
-    </div> 
+      <input type="button" id="submit" value="Submit">
 
+      <script src="index.js"></script>
 
-    <br><p> Enter your zip code to find nearby treatment options.</p><br>
-    <div class="submit-form">
-      <form>
-        <label for="zip">Zip Code:</label>
-        <br>
-        <input type="text" id="zip">
-        <br>
-        <input type="button" id="submit" value="Submit">
-        
-        <script src="index.js"></script>
+      <div id="map1"></div>
 
-        <div id="map1"></div>
+      <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNn7YpOt1n3gSmIKXD8IfyLWWKVE1ChyQ&libraries=places&callback=initialize"
+        async></script>
 
-        <script
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNn7YpOt1n3gSmIKXD8IfyLWWKVE1ChyQ&libraries=places&callback=initialize" 
-          async
-        ></script>
-        
-      </form>
-    </div>
+    </form>
+  </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- JQUERY -->
-    <script src="index.js" charset="utf-8"></script> <!-- WEBPAGE -->
-    
-  </body>
+  <!-- SCRIPTS -->
+
+  <!-- popper -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+    integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous">
+  </script>
+
+  <!-- bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+    integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous">
+  </script>
+
+  <!-- webpage -->
+  <script src="index.js" charset="utf-8"></script>
+
+</body>
+
 </html>

@@ -1,19 +1,19 @@
-const {ClarifaiStub, grpc} = require("clarifai-nodejs-grpc");
+const {ClarifaiStub, grpc} = require("clarifai-nodejs-grpc"); // <---- This isn't working
+// import ClarifaiStub from 'clarifai-nodejs-grpc';
 
 const stub = ClarifaiStub.grpc();
 
 const metadata = new grpc.Metadata();
 metadata.set("authorization", "Key decc6840c2984eedafb77262b5382802"); // had to get api key from api page
-function getAcneLevel(filename) {
-    // var results = []; // put results in here
+function getAcneLevel(filename) { // take in url from frontend input
 
     stub.PostModelOutputs(
         {
             // This is the model ID of a publicly available General model. You may use any other public or custom model ID.
             model_id: "acne-classifier",
             inputs: [{data: {image: {url: filename}}}]
-            //https://www.thehealthsite.com/wp-content/uploads/2014/08/pimples1.jpg
-            // https://mindbodygreen-res.cloudinary.com/images/w_767,q_auto:eco,f_auto,fl_lossy/org/zf7a8y99cjt0cpxj9/is-it-acne-or-rosacea-how-to-spot-the-difference-according-to-a-derm.jpg
+            // https://www.thehealthsite.com/wp-content/uploads/2014/08/pimples1.jpg
+            // https://www.byrdie.com/thmb/h3lnZoIj-HyPpvv8VnZ7hnBGbHk=/1238x994/filters:no_upscale():max_bytes(150000):strip_icc()/EMw5nnLXUAEnuvJ-c925bf0b25d941608cc9e6b4607a4395.jpg
         },
         metadata,
         (err, response) => {
@@ -31,15 +31,35 @@ function getAcneLevel(filename) {
              console.log("Predicted concepts, with confidence values:")
              for (const c of response.outputs[0].data.concepts) {
                 console.log(c.name + ": " + c.value);
-                results.push(c.value); // putting results in an array
             }
-            return results;
         }
     );
 }
 
 function upload() {
-    const file = document.getElementById("imageInput").value;
+    const inpFile = document.getElementById("imageInput");
+    const previewContainer = document.getElementById("imagePreview");
+    const previewImage = previewContainer.querySelector(".image-preview__image");
+    const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
+
+    const file = inpFile.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+
+        previewDefaultText.style.display = "none";
+        previewImage.style.display = "block";
+        
+        reader.addEventListener("load", function() {
+            previewImage.setAttribute("src", reader.result);
+        });
+
+        reader.readAsDataURL(file);
+    } else {
+        previewDefaultText.style.display = null;
+        previewImage.style.display = null;
+        previewImage.setAttribute("src", "");
+    }
 
     /*
     if (file) { // Make sure file exists
@@ -50,6 +70,9 @@ function upload() {
 
     console.log(file);
     */
-    getAcneLevel(file); // Takes in the file and runs an analysis on it
+    // getAcneLevel(file); // Takes in the file and runs an analysis on it
+    getAcneLevel(file);
 }
+
+getAcneLevel("https://www.byrdie.com/thmb/h3lnZoIj-HyPpvv8VnZ7hnBGbHk=/1238x994/filters:no_upscale():max_bytes(150000):strip_icc()/EMw5nnLXUAEnuvJ-c925bf0b25d941608cc9e6b4607a4395.jpg");
 
