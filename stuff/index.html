@@ -13,8 +13,8 @@
     <div class="topnav">
       <a class="active" href="#Home"
       >Home</a>
-      <a href="#About">About</a>
       <a href="maps.html">Maps</a>
+      <a href="#About">About</a>  
     </div>
 
     <div>
@@ -38,11 +38,14 @@
 
     <p> Enter your zip code to fnd nearby treatment options.</p><br>
 
-    <form location >
+    <form>
       <label for="zip">Zip Code:</label>
       <input type="text" id="zip">
     </form>
-
+    <script>
+      var zip = document.getElementById("zip").value;
+      localStorage.setItem("zip", zip);
+    </script>
     <script src="index.js" charset="utf-8"></script>
     
   </body>

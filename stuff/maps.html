@@ -9,6 +9,8 @@
       }
     </style>
     <script>
+      var zip = localStorage["zip"];
+      localStorage.removeItem("zip");
       function initialize() {
         let map;
         const userLoc = { lat: 0, lng: 0 };
@@ -28,17 +30,14 @@
 
     <div class="topnav">
       <a href="index.html">Home</a>
-      <a href="#About">About</a>
       <a class="active" href="maps.html">Maps</a>
+      <a href="#About">About</a>
     </div>
 
     <div id="map"></div>
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjwEXT_cwfKfn2NILFiavJa1qRkJ7S43U&v=3&callback=initialize" 
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNn7YpOt1n3gSmIKXD8IfyLWWKVE1ChyQ&v=3&callback=initialize" 
       async
     ></script>
-its good!!whatd you do,i added v=3 after the api key
-    oh
-    i enabled the javascript api on google cloud
   </body>
 </html> 
