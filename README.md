@@ -1,4 +1,5 @@
-# no-mo-acne
+# nomoacne.online 
+*"no more acne online"*
 
 GunnHacks 2021 Project
 
