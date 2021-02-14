@@ -172,14 +172,33 @@ form.onsubmit = function(event){
 
   console.log(formData);
 
-  xhr.open("post", "/analyze");
-  xhr.send(formData);
-console.log('aergaergeargaeraerg');
-  console.log(xhr.response);
-  console.log("Data Sent");
-  console.log(file);
+  // xhr.open("post", "/analyze");
+  // xhr.send(formData);
+// console.log('aergaergeargaeraerg');
+  // console.log(xhr.response);
+  
+  // console.log(file);
 
- $('#pills-results').html('these are the results!!');
+ // $('#pills-results').html('these are the results!!');
+ 
+jQuery.ajax({
+  url: '/analyze',
+  data: formData,
+  cache: false,
+  contentType: false,
+  processData: false,
+  method: 'POST',
+  type: 'POST', // For jQuery < 1.9
+  success: function(data){
+    var jsondata = JSON.parse(data);
+    var dataresult = ""
+    for (const concept of jsondata) {
+      dataresult += concept.name + " " + concept.value + "<br>"
+    }
+    $('#pills-results').html(dataresult);
+  }
+});
+console.log("Data Sent");
   /*
   $.ajax({
     url: '/analyze',
