@@ -1,6 +1,8 @@
 # nomoacne.online 
 *"no more acne online"*
 
+![alt text](acneresult1.png)
+
 GunnHacks 2021 Project
 
 A website that uses machine learning and image processing to diagnose and help treat people with acne.
@@ -20,5 +22,5 @@ We walked in only knowing an h1 tag and walked out knowing an h6 tag 😤
 - Other: Clarifai, Google Cloud
 
 ## How To Run Locally
-Run the server.js file
-connect to the localhost:port on your browser of choosing
+1. Run the server.js file
+2. connect to the localhost:port on your browser of choosing
