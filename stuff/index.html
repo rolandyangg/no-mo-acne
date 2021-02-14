@@ -21,7 +21,7 @@
   <section id="header">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">NomoAcne</a>
+        <a class="navbar-brand" href="#">NoMoAcne</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -58,22 +58,22 @@
   <div class="instructions">
     <br>
     <p fstyle=font-size:50px> <b>No Mo Acne is a machine learning-based system that can help you stay on top of acne.
-        Simply upload one of your many camera roll selfies below and we can help you determine the severity of your acne 
-        and whether skin care treatment would be beneficial. If you wish to view treatment options, you can use our 
+        Simply upload one of your many camera roll selfies below and we can help you determine the severity of your acne
+        and whether skin care treatment would be beneficial. If you wish to view treatment options, you can use our
         nearby treatment finder using your zip code.
-    </b></p>
+      </b></p>
   </div>
 
   <!-- FORM -->
   <section id="image">
     <div class="image-form">
       <!-- (add back to form later if needed: action="SCRIPT THAT DOES WHATEVER WHEN SUBMIT IS CLICKED" method="post" enctype="text/plain" -->
-      <form>
-      <label style="padding-bottom: 1%">Select the image that you want to upload:</label>
-      <br>
-      <input type="file" name="imageInput" accept="image/*" id="imageInput" style="padding-bottom: 0.5%">
-      <br>
-      <input type="submit" value="Analyze">
+      <form id="submission-form">
+        <label style="padding-bottom: 1%">Select the image that you want to upload:</label>
+        <br>
+        <input type="file" name="imageInput" accept="image/*" id="imageInput" style="padding-bottom: 0.5%">
+        <br>
+        <input type="submit" value="Analyze">
       </form>
     </div>
 
@@ -85,7 +85,7 @@
     <br>
   </section>
 
-  
+
 
   <!-- RESULTS -->
   <div class="results">
@@ -134,7 +134,7 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNn7YpOt1n3gSmIKXD8IfyLWWKVE1ChyQ&libraries=places&callback=initialize"
         async></script>
   </div>
-  --> 
+  -->
 
   <!-- popper -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
@@ -150,4 +150,5 @@
   <script src="index.js" charset="utf-8"></script>
 
 </body>
+
 </html>

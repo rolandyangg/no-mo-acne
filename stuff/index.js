@@ -125,30 +125,69 @@ function showDetails(placeResult, marker, status) {
 
 }
 
-  // INTERACTIVE WEBPAGE
+// INTERACTIVE WEBPAGE
 
-  const inpFile = document.getElementById("imageInput");
-  const previewContainer = document.getElementById("imagePreview");
-  const previewImage = previewContainer.querySelector(".image-preview__image");
-  const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
+const inpFile = document.getElementById("imageInput");
+const previewContainer = document.getElementById("imagePreview");
+const previewImage = previewContainer.querySelector(".image-preview__image");
+const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
+const form = document.getElementById("submission-form");
 
-  inpFile.addEventListener("change", function() {
-    const file = inpFile.files[0];
+// Image Preview
+inpFile.addEventListener("change", function () {
+  const file = inpFile.files[0];
 
-    if (file) {
-      const reader = new FileReader();
+  if (file) {
+    const reader = new FileReader();
+
+    previewDefaultText.style.display = "none";
+    previewImage.style.display = "block";
+
+    reader.addEventListener("load", function () {
+      previewImage.setAttribute("src", reader.result);
+    });
+
+    reader.readAsDataURL(file);
+  } else {
+    previewDefaultText.style.display = null;
+    previewImage.style.display = null;
+    previewImage.setAttribute("src", "");
+  }
+});
+
+// Ajax Post
+form.onsubmit = function(event){
+  const file = inpFile.files[0];
+
+  event.preventDefault() // prevent form from posting without JS
+
+  console.log("Clicked Submit");
   
-      previewDefaultText.style.display = "none";
-      previewImage.style.display = "block";
-  
-      reader.addEventListener("load", function () {
-        previewImage.setAttribute("src", reader.result);
-      });
-  
-      reader.readAsDataURL(file);
-    } else {
-      previewDefaultText.style.display = null;
-      previewImage.style.display = null;
-      previewImage.setAttribute("src", "");
+  const xhr = new XMLHttpRequest();
+  const formData = new FormData();
+
+  for (const file of inpFile.files) {
+    formData.append("myFiles[]", file);
+  }
+
+  console.log(formData);
+
+  xhr.open("post", "/analyze");
+  xhr.send(formData);
+
+  console.log("Data Sent");
+  console.log(file);
+
+  /*
+  $.ajax({
+    url: '/analyze',
+    type: 'post',
+    data: fd,
+    contentType: false,
+    processData: false,
+    success: function(response) {
+      console.log("Successs!");
     }
   });
+  */
+}

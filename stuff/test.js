@@ -1,3 +1,4 @@
+
 const {ClarifaiStub, grpc} = require("clarifai-nodejs-grpc"); // <---- This isn't working
 // import ClarifaiStub from 'clarifai-nodejs-grpc';
 
@@ -5,13 +6,14 @@ const stub = ClarifaiStub.grpc();
 
 const metadata = new grpc.Metadata();
 metadata.set("authorization", "Key decc6840c2984eedafb77262b5382802"); // had to get api key from api page
+
 function getAcneLevel(filename) { // take in url from frontend input
 
     stub.PostModelOutputs(
         {
             // This is the model ID of a publicly available General model. You may use any other public or custom model ID.
             model_id: "acne-classifier",
-            inputs: [{data: {image: {url: filename}}}]
+            inputs: [{data: {image: filename}}]
             // https://www.thehealthsite.com/wp-content/uploads/2014/08/pimples1.jpg
             // https://www.byrdie.com/thmb/h3lnZoIj-HyPpvv8VnZ7hnBGbHk=/1238x994/filters:no_upscale():max_bytes(150000):strip_icc()/EMw5nnLXUAEnuvJ-c925bf0b25d941608cc9e6b4607a4395.jpg
         },
@@ -36,6 +38,7 @@ function getAcneLevel(filename) { // take in url from frontend input
     );
 }
 
+/*
 function upload() {
     const inpFile = document.getElementById("imageInput");
     const previewContainer = document.getElementById("imagePreview");
@@ -61,6 +64,8 @@ function upload() {
         previewImage.setAttribute("src", "");
     }
 
+    console.log(file);
+
     /*
     if (file) { // Make sure file exists
         const reader = new FileReader();
@@ -69,10 +74,11 @@ function upload() {
     }
 
     console.log(file);
-    */
     // getAcneLevel(file); // Takes in the file and runs an analysis on it
-    getAcneLevel(file);
+    // getAcneLevel(file);
 }
-
-getAcneLevel("https://www.byrdie.com/thmb/h3lnZoIj-HyPpvv8VnZ7hnBGbHk=/1238x994/filters:no_upscale():max_bytes(150000):strip_icc()/EMw5nnLXUAEnuvJ-c925bf0b25d941608cc9e6b4607a4395.jpg");
+*/
+var image = new Image();
+image.src="/images/doctor.png";
+getAcneLevel(image);
 

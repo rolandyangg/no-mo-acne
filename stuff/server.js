@@ -1,7 +1,9 @@
+
+
 const express = require('express');
 const bodyParser = require("body-parser");
 const multer = require('multer');
-const upload = multer({dest:'uploads/'});
+const upload  = multer({ storage: multer.memoryStorage() });
 
 const app = express();
 const port = 300;
@@ -14,10 +16,9 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + "/index.html");
 });
 
-app.post('/analyze', (req, res) => {
-    console.log("Received Analyze Request");
-    console.log(req.body);
-});
+app.post('/analyze', upload.array('myFiles[]'), (req, res) => {
+    console.log(req.files[0]);
+  });
 
 app.listen(port, function(){
     console.log("Server is running on port " + port);
