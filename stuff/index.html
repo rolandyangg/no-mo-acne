@@ -13,50 +13,79 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <!-- stylesheet -->
-  <link rel="stylesheet" href="styless.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
   <!-- HEADER -->
   <section id="header">
-    <div class="container-fluid">
-      <nav class="navbar navbar-light bg-light">
-        <a href="#" class="navbar-brand">No Mo Acne</a>
-        <ul class="navbar-nav">
-          <li class="navbar-item">
-            <a href="#" class="nav-link">About</a>
-          </li>
-          <li class="navbar-item">
-            <a href="#" class="nav-link">Info</a>
-          </li>
-        </ul>
-      </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">NomoAcne</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="info.html">Learn More</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid-title">
+
+      <div class="row">
+
+        <div class="col-lg-6">
+          <h1 id="main-title">Say "No More" to acne today.</h1>
+        </div>
+
+        <div class="col-lg-6">
+          <img class="title-image" src="images/doctor.png" alt="doctor">
+        </div>
+
+      </div>
 
     </div>
   </section>
 
   <!-- INSTRUCTIONS -->
-  <div>
+  <div class="instructions">
     <br>
-    <p> <b>Upload a picture of your face below to see if treatment can be
-        beneficial for you.</b></p>
+    <p fstyle=font-size:50px > <b>No Mo Acne is a machine learning-based system that can help you stay on top of acne.
+        Simply upload one of
+        your many camera roll selfies below and we can help you determine whether treatment would be beneficial.
+      </b></p>
   </div>
 
   <!-- FORM -->
-  <div class="submit-form">
+  <section id="image">
+  <div class="image-form">
     <!-- (add back to form later if needed: action="SCRIPT THAT DOES WHATEVER WHEN SUBMIT IS CLICKED" method="post" enctype="text/plain" -->
-    <label>Select your image that you want to upload:</label>
+    <label style="padding-bottom: 1%">Select your image that you want to upload:</label>
     <br>
-    <input type="file" name="imageInput" accept="image/*" id="imageInput">
+    <input type="file" name="imageInput" accept="image/*" id="imageInput" style="padding-bottom: 0.5%">
     <br>
     <input type="button" onclick="upload()" value="Analyze">
   </div>
 
   <div class="image-preview" id="imagePreview">
     <img src="" alt="" class="image-preview__image">
-    <span class="image-preview__default-text">Please Upload A Image</span>
+    <span class="image-preview__default-text">Please Upload An Image</span>
   </div>
+</section>
 
   <br>
 
@@ -87,27 +116,24 @@
     </div>
   </div>
 
-  <!-- MAP -->
-  <br>
-  <p> <b>Enter your zip code to find nearby treatment options.</b></p><br>
-  <div class="submit-form">
+  <!-- MAP
+  <br><br>
+  <p id="enter-zip"> Enter your zip code to find nearby treatment options.</p>
+  <div class="zip-form">
     <form>
-      <label for="zip">Zip Code:</label>
+      <label for="zip" style="padding-bottom: 0.5%">Zip Code:</label>
       <br>
       <input type="text" id="zip">
-      <br>
       <input type="button" id="submit" value="Submit">
 
       <script src="index.js"></script>
-
-      <div id="map1"></div>
-
+    </form>
+  </div>
+  <div id="map1"></div>
       <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNn7YpOt1n3gSmIKXD8IfyLWWKVE1ChyQ&libraries=places&callback=initialize"
         async></script>
-
-    </form>
-  </div>
+  </div> -->
 
   <!-- SCRIPTS -->
 

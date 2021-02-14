@@ -1,59 +1,35 @@
-body {
-    padding: 5% 10%;
-    background-repeat: no-repeat;
+#header {
+    background-color: #2D9BFF;
 }
 
-h1 {
-    text-align: center;
+#main-title {
+    color: #fff;
+    font-size: 75px;
 }
 
-.topnav {
-    background-color: rgb(82, 147, 200);
-    text-align: center;
+.container-fluid-title {
+    padding: 11% 10%;
 }
 
-.topnav a {
-    display: inline-block;
-    background-color: rgb(92, 84, 204);
-    text-align: center;
-    padding: 10px 50px;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
-    color: rgb(255, 255, 255);
+.title-image {
+    width: 35%;
+    position: absolute;
+    top: 50px
 }
 
-#linksHeader {
-    padding-left: 50px;
-    font-size: 26px;
-    color: rgb(0, 0, 0);
-}
-
-.links a {
-    float: center;
-    padding: 50px;
-    font-size: 20px;
-    color: rgb(0, 0, 0);
-}
-
-#map1 {
+/*#map1 {
     margin: auto;
     height: 600px;
     width: 100%;
+}*/
+
+.instructions {
+    padding: 0% 10%;
 }
 
-.types {
-    padding-left: 50px;
-    font-size: 20px;
-    color: rgb(0, 0, 0);
+#image {
+    padding: 0% 10%;
 }
-
-.tips {
-    padding-left: 50px;
-    font-size: 20px;
-    color: rgb(0, 0, 0);
-}
-
 
 .image-preview {
     width: 300px;
@@ -65,7 +41,7 @@ h1 {
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    color: #e9e9e9;
+    color: #dddddd;
 }
 
 .image-preview__image {
@@ -73,22 +49,79 @@ h1 {
     width: 100%;
 }
 
+.results {
+    padding: 0% 10%;
+}
+
+#enter-zip {
+    padding: 0% 10%;
+}
+
+.zip-form {
+    padding: 1% 10%;
+}
+
+/*____________About_____________*/
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    background-color: #2196F3;
+}
+
 .bio1 {
-    color: rgb(0, 0, 0);
+    background-color: #2D9BFF;
+    padding: 10% 5%; 
+    color: rgb(255, 255, 255);
 }
-
 .bio2 {
+    background-color: #91caff;
+    padding: 10% 5%; 
     color: rgb(0, 0, 0);
 }
-
 .bio3 {
+    background-color: #91caff;
+    padding: 10% 5%; 
     color: rgb(0, 0, 0);
 }
-
 .bio4 {
-    color: rgb(0, 0, 0);
+    background-color: #2D9BFF;
+    padding: 10% 5%; 
+    color: rgb(255, 255, 255);
 }
 
-.container-fluid {
-    background-color: #2d9bff;
+/*____________Learn more_____________*/
+.grid-container1 {
+    display: grid;
+    grid-template-columns: auto auto;
+    background-color: #ffffff;
+}
+.tips {
+    font-size: 18px;
+    padding-left: 30%;
+}
+
+.types {
+    font-size: 18px;
+    padding-top: 20%;
+    padding-left: 30%;
+}
+.tips-img {
+    padding-left: 8%;
+    padding-bottom: 8%;
+}
+.types-img {
+    padding-left: 4%;
+    padding-bottom: 5%;
+}
+
+.links {
+    background-color: #91caff;
+    padding: 2% 10%;
+}
+.links a{
+    display: inline-block;
+    font-size: 18px;
+    padding: 0.5% 10%;
+    color: black;
 }
