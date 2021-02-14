@@ -1,5 +1,8 @@
-Treatment:
-!!- See a dermatologist immediately
-- Antibiotics (topical and oral)
-- Injecting corticosteroids
-- Incision and drainage
+<ul>
+    <li>You should see a dermatologist immediately. This is the best treatment, especially for the long run.</li>
+    <li>Topical and oral antibiotics may also help.</li>
+    <li>Injecting corticosteroids (See dermatologist first).</li>
+    <li>Incision and drainage (See dermatologist first).</li>
+</ul>
+
+

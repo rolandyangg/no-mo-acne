@@ -1,3 +1,6 @@
-!!- Try over-the-counter products first. If they do not work, see a dermatologist.
-- Prescription oral antibiotics for 2 months
-- Topical treatments
+<ul>
+    <li>Over-the-counter products (see dermatologist if they don't work)</li>
+    <li>2 months of prescription oral antibiotics</li>
+    <li>Topical treatments</li>
+    <li>Stress Reduction</li>
+</ul>

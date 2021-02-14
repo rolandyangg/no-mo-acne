@@ -1,10 +1,8 @@
 <h3>You have Mild Acne!</h3>
+<h6>Mild Acne is characterized by...</h6>
 <ul>
-<li>Occasional</li>
-<li>Occurs in isolated parts of the face</li>
-<li>Commonly found on the chin, nose, or forehead</li>
+<li>Occasional Breakouts of blackheads (open pores), whiteheads (closed pores), and papules (small pimples of bumps)</li>
+<li>Occuring in isolated parts of the face, such as the chin, nose or forehead</li>
+<li>Worsening over time if untreated</li>
+<li>
 </ul>
-
-- Papules (small pimples of bumps)
-- Whiteheads (closed pores)
-- Blackheads (open pores)

@@ -4,16 +4,11 @@
     width: 99%;
 }
 .body {
-    
     background-color: rgb(255, 255, 255)
-}
-#main-title {
-    color: #fff;
-    font-size: 75px;
 }
 .container-fluid-title {
     position: static;
-    padding-top: 3%;
+    padding-top: 1%;
     padding-left: 10%;
     padding-right: 10%;
 }
@@ -58,6 +53,25 @@
     padding: 1% 10%;
 }
 
+#container-fluid {
+    padding: 5% 5%;
+}
+
+#pills-tab-nav {
+    display:table;
+    width:100%;
+    margin: 0;
+}
+
+#pills-tab-nav > li {
+    float:none;
+    display:table-cell;
+    text-align:center;
+}
+
+#main-nav {
+    padding: 0% 5%;
+}
 
 /*____________About_____________*/
 #h2 {

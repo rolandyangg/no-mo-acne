@@ -21,9 +21,11 @@
   <section id="header">
 
     <!--NAVBAR-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="main-nav">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">NoMoAcne</a>
+        <a class="navbar-brand" href="#">
+          <img src="images/nomoacnelogo.png" alt="logo" style="width:15%">
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -47,8 +49,9 @@
     <!--MAIN TITLE-->
     <div class="container-fluid-title">
       <div class="row">
-        <div class="col-lg-6">
-          <h1 id="main-title">Say "No More" to Acne</h1>
+        <div class="col-lg-6 col-md-6 col-12 w-50 align-self-center">
+          <h3 style="color:#fff; font-size: 60px">Say "No More" to Acne</h3>
+          <h4 style="color:#fff">Identify and eliminate your acne with NomoAcne</h4>
         </div>
         <div class="col-lg-6">
           <img class="title-image" src="images/doctor.png" alt="doctor">
@@ -58,13 +61,17 @@
   </section>
 
   <!-- INSTRUCTIONS -->
-  <div class="instructions">
-    <br>
-    <p fstyle=font-size:50px> <b>No Mo Acne is a machine learning-based system that can help you stay on top of acne.
+  <div class="instructions" id="container-fluid">
+    <div class="row">
+      <h1>Your 24/7 Dermatologist</h1>
+    </div>
+    <div class="row">
+      <p>No Mo Acne is a machine learning-based system that can help you stay on top of acne.
         Simply upload one of your many camera roll selfies below and we can help you determine the severity of your acne
         and whether skin care treatment would be beneficial. If you wish to view treatment options, you can use our
         nearby treatment finder using your zip code.
-      </b></p>
+      </p>
+    </div>
   </div>
 
   <!-- FORM -->
@@ -72,11 +79,11 @@
     <div class="image-form">
       <!-- (add back to form later if needed: action="SCRIPT THAT DOES WHATEVER WHEN SUBMIT IS CLICKED" method="post" enctype="text/plain" -->
       <form id="submission-form">
-        <label style="padding-bottom: 1%">Select the image that you want to upload:</label>
+        <label style="padding-bottom: 1%">For best results use a photo focused on your face as much as possible<br>Select the image that you want to upload (photo formats only: .png, .jpg, etc):</label>
         <br>
         <input type="file" name="imageInput" accept="image/*" id="imageInput" style="padding-bottom: 0.5%">
         <br>
-        <input type="submit" value="Analyze">
+        <input type="submit" value="Analyze" onclick="">
       </form>
     </div>
 
@@ -92,7 +99,7 @@
 
   <!-- RESULTS -->
   <div class="results">
-    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <ul class="nav nav-pills mb-3" id="pills-tab-nav" role="tablist">
       <li class="nav-item" role="presentation">
         <button class="nav-link active" id="pills-results-tab" data-bs-toggle="pill" data-bs-target="#pills-results"
           type="button" role="tab" aria-controls="pills-results" aria-selected="true">Results</button>
@@ -120,7 +127,7 @@
     </div>
   </div>
 
-  <!-- MAP
+  <!-- MAP -->
   <br><br>
   <p id="enter-zip"> Enter your zip code to find nearby treatment options.</p>
   <div class="zip-form">
@@ -137,7 +144,6 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNn7YpOt1n3gSmIKXD8IfyLWWKVE1ChyQ&libraries=places&callback=initialize"
         async></script>
   </div>
-  -->
 
   <!-- popper -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
@@ -153,5 +159,11 @@
   <script src="index.js" charset="utf-8"></script>
 
 </body>
+
+<footer class="bg-light text-center txt-lg-start">
+  <div class="text-center p-3" style="background-color:#fff">
+    @ 2021 GunnHacks
+  </div>
+</footer>
 
 </html>
