@@ -4,7 +4,7 @@ GunnHacks 2021 Project
 
 A website that uses machine learning and image processing to diagnose and help treat people with acne.
 
-We walked in only knowing an <h1> tag and walked out knowing an <h6> tag 😤
+We walked in only knowing an h1 tag and walked out knowing an h6 tag 😤
 
 ## Authors
 Ahaan Limaye @ahaanlimaye
