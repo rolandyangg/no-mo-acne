@@ -174,10 +174,12 @@ form.onsubmit = function(event){
 
   xhr.open("post", "/analyze");
   xhr.send(formData);
-
+console.log('aergaergeargaeraerg');
+  console.log(xhr.response);
   console.log("Data Sent");
   console.log(file);
 
+ $('#pills-results').html('these are the results!!');
   /*
   $.ajax({
     url: '/analyze',

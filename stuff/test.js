@@ -7,6 +7,40 @@ const stub = ClarifaiStub.grpc();
 const metadata = new grpc.Metadata();
 metadata.set("authorization", "Key decc6840c2984eedafb77262b5382802"); // had to get api key from api page
 
+function getAcneLevel(file) {
+    const fs = require("fs");
+const imageBytes = fs.readFileSync("C:\\Users\\noxbo\\Documents\\GitHub Folders\\acne-helper\\stuff\\images\\acneimage.jpg");
+
+stub.PostModelOutputs(
+    {
+        model_id: "acne-classifier",
+        version_id: "",  // This is optional. Defaults to the latest model version.
+        inputs: [
+            {data: {image: {base64: imageBytes}}}
+        ]
+    },
+    metadata,
+    (err, response) => {
+        if (err) {
+            throw new Error(err);
+        }
+
+        if (response.status.code !== 10000) {
+            throw new Error("Post model outputs failed, status: " + response.status.description);
+        }
+
+        // Since we have one input, one output will exist here.
+        const output = response.outputs[0];
+
+        console.log("Predicted concepts:");
+        for (const concept of output.data.concepts) {
+            console.log(concept.name + " " + concept.value);
+        }
+    }
+);
+}
+
+/*
 function getAcneLevel(filename) { // take in url from frontend input
 
     stub.PostModelOutputs(
@@ -78,7 +112,7 @@ function upload() {
     // getAcneLevel(file);
 }
 */
-var image = new Image();
-image.src="/images/doctor.png";
-getAcneLevel(image);
+//var image = new Image();
+//image.src="/images/doctor.png";
+getAcneLevel("test");
 
