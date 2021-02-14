@@ -17,10 +17,8 @@
 </head>
 
 <body>
-
   <!-- HEADER -->
   <section id="header">
-
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">NomoAcne</a>
@@ -45,19 +43,14 @@
     </nav>
 
     <div class="container-fluid-title">
-
       <div class="row">
-
         <div class="col-lg-6">
           <h1 id="main-title">Say "No More" to acne today.</h1>
         </div>
-
         <div class="col-lg-6">
           <img class="title-image" src="images/doctor.png" alt="doctor">
         </div>
-
       </div>
-
     </div>
   </section>
 
@@ -65,29 +58,34 @@
   <div class="instructions">
     <br>
     <p fstyle=font-size:50px> <b>No Mo Acne is a machine learning-based system that can help you stay on top of acne.
-        Simply upload one of
-        your many camera roll selfies below and we can help you determine whether skin care treatment would be beneficial.
-      </b></p>
+        Simply upload one of your many camera roll selfies below and we can help you determine the severity of your acne 
+        and whether skin care treatment would be beneficial. If you wish to view treatment options, you can use our 
+        nearby treatment finder using your zip code.
+    </b></p>
   </div>
 
   <!-- FORM -->
   <section id="image">
     <div class="image-form">
       <!-- (add back to form later if needed: action="SCRIPT THAT DOES WHATEVER WHEN SUBMIT IS CLICKED" method="post" enctype="text/plain" -->
-      <label style="padding-bottom: 1%">Select your image that you want to upload:</label>
+      <form>
+      <label style="padding-bottom: 1%">Select the image that you want to upload:</label>
       <br>
       <input type="file" name="imageInput" accept="image/*" id="imageInput" style="padding-bottom: 0.5%">
       <br>
-      <input type="button" onclick="upload()" value="Analyze">
+      <input type="submit" value="Analyze">
+      </form>
     </div>
 
     <div class="image-preview" id="imagePreview">
       <img src="" alt="" class="image-preview__image">
       <span class="image-preview__default-text">Please Upload An Image</span>
     </div>
+
+    <br>
   </section>
 
-  <br>
+  
 
   <!-- RESULTS -->
   <div class="results">
@@ -105,18 +103,21 @@
           type="button" role="tab" aria-controls="pills-treatment" aria-selected="false">Treatment</button>
       </li>
     </ul>
+
     <div class="tab-content" id="pills-tabContent">
       <div class="tab-pane fade show active" id="pills-results" role="tabpanel" aria-labelledby="pills-results-tab">Your
-        results are...</div>
+        results are...
+      </div>
       <div class="tab-pane fade" id="pills-diagnosis" role="tabpanel" aria-labelledby="pills-diagnosis-tab">Your
-        diagnosis
-        is...</div>
+        diagnosis is...
+      </div>
       <div class="tab-pane fade" id="pills-treatment" role="tabpanel" aria-labelledby="pills-treatment-tab">Some
-        recommended treatments are...</div>
+        recommended treatments are...
+      </div>
     </div>
   </div>
 
-  <!-- MAP-->
+  <!-- MAP
   <br><br>
   <p id="enter-zip"> Enter your zip code to find nearby treatment options.</p>
   <div class="zip-form">
@@ -128,13 +129,12 @@
       <script src="index.js"></script>
     </form>
   </div>
-  <div id="map1"></div>
+  <div id="map1">
       <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNn7YpOt1n3gSmIKXD8IfyLWWKVE1ChyQ&libraries=places&callback=initialize"
         async></script>
-  </div> 
-
-  <!-- SCRIPTS -->
+  </div>
+  --> 
 
   <!-- popper -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
@@ -150,5 +150,4 @@
   <script src="index.js" charset="utf-8"></script>
 
 </body>
-
 </html>

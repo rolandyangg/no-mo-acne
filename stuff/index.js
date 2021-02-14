@@ -125,40 +125,30 @@ function showDetails(placeResult, marker, status) {
 
 }
 
-function upload() {
+  // INTERACTIVE WEBPAGE
+
   const inpFile = document.getElementById("imageInput");
   const previewContainer = document.getElementById("imagePreview");
   const previewImage = previewContainer.querySelector(".image-preview__image");
   const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
 
-  const file = inpFile.files[0];
+  inpFile.addEventListener("change", function() {
+    const file = inpFile.files[0];
 
-  if (file) {
-    const reader = new FileReader();
-
-    previewDefaultText.style.display = "none";
-    previewImage.style.display = "block";
-
-    reader.addEventListener("load", function () {
-      previewImage.setAttribute("src", reader.result);
-    });
-
-    reader.readAsDataURL(file);
-  } else {
-    previewDefaultText.style.display = null;
-    previewImage.style.display = null;
-    previewImage.setAttribute("src", "");
-  }
-
-  /*
-  if (file) { // Make sure file exists
+    if (file) {
       const reader = new FileReader();
-
-      console.log(reader.readAsDataURL(file));
-  }
-
-  console.log(file);
-  */
-  // getAcneLevel(file); // Takes in the file and runs an analysis on it
-  // getAcneLevel(file);
-}
+  
+      previewDefaultText.style.display = "none";
+      previewImage.style.display = "block";
+  
+      reader.addEventListener("load", function () {
+        previewImage.setAttribute("src", reader.result);
+      });
+  
+      reader.readAsDataURL(file);
+    } else {
+      previewDefaultText.style.display = null;
+      previewImage.style.display = null;
+      previewImage.setAttribute("src", "");
+    }
+  });
