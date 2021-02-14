@@ -156,13 +156,13 @@ inpFile.addEventListener("change", function () {
 });
 
 // Ajax Post
-form.onsubmit = function(event){
+form.onsubmit = function (event) {
   const file = inpFile.files[0];
 
   event.preventDefault() // prevent form from posting without JS
 
   console.log("Clicked Submit");
-  
+
   const xhr = new XMLHttpRequest();
   const formData = new FormData();
 
@@ -172,43 +172,70 @@ form.onsubmit = function(event){
 
   console.log(formData);
 
-  // xhr.open("post", "/analyze");
-  // xhr.send(formData);
-// console.log('aergaergeargaeraerg');
-  // console.log(xhr.response);
-  
-  // console.log(file);
-
- // $('#pills-results').html('these are the results!!');
- 
-jQuery.ajax({
-  url: '/analyze',
-  data: formData,
-  cache: false,
-  contentType: false,
-  processData: false,
-  method: 'POST',
-  type: 'POST', // For jQuery < 1.9
-  success: function(data){
-    var jsondata = JSON.parse(data);
-    var dataresult = ""
-    for (const concept of jsondata) {
-      dataresult += concept.name + " " + concept.value + "<br>"
-    }
-    $('#pills-results').html(dataresult);
-  }
-});
-console.log("Data Sent");
-  /*
-  $.ajax({
+  jQuery.ajax({
     url: '/analyze',
-    type: 'post',
-    data: fd,
+    data: formData,
+    cache: false,
     contentType: false,
     processData: false,
-    success: function(response) {
-      console.log("Successs!");
+    method: 'POST',
+    type: 'POST', // For jQuery < 1.9
+    success: function (data) {
+      // Where the magic happens
+      var jsondata = JSON.parse(data);
+      useData(jsondata);
     }
   });
-  */
+  console.log("Data Sent");
+}
+
+function useData(data) {
+  var dataresult = "<h2>Here are your results: </h2>"
+  var topNotFound = true;
+  for (const concept of data) { // goes in order from highest to lowest
+    let level = concept.name;
+    switch (level) {
+      case "level-1-acne":
+        level = "Mild";
+        break;
+      case "level-2-acne":
+        level = "Moderate";
+        break;
+      case "level-3-acne":
+        level = "Severe"
+        break;
+      default:
+        level = "NA" // Hopefully this doesn't happen just a failsafe tho :eyes:
+    }
+    if (topNotFound) {
+      setToResult(level.toLowerCase());
+      topNotFound = false;
+    }
+    dataresult += "<h5>" + level + ": " + (concept.value * 100).toFixed(2) + "%</h5><br>";
+  }
+  $('#pills-results').html(dataresult);
+}
+
+function setToResult(level) {
+  fetch('descriptions/' + level + "-diagnosis.txt")
+  .then(function(response){
+    return response.text();
+  })
+  .then(function(data){
+    $('#pills-diagnosis').html(data);
+  })
+  .catch(function(error){
+    console.log(error) // welp
+  })
+
+  fetch('descriptions/' + level + "-treatment.txt")
+  .then(function(response){
+    return response.text();
+  })
+  .then(function(data){
+    $('#pills-treatment').html(data);
+  })
+  .catch(function(error){
+    console.log(error) // welp[1]
+  })
 }

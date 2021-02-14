@@ -1,5 +1,7 @@
-
-const {ClarifaiStub, grpc} = require("clarifai-nodejs-grpc"); // <---- This isn't working
+const {
+    ClarifaiStub,
+    grpc
+} = require("clarifai-nodejs-grpc"); // <---- This isn't working
 // import ClarifaiStub from 'clarifai-nodejs-grpc';
 
 const stub = ClarifaiStub.grpc();
@@ -9,35 +11,38 @@ metadata.set("authorization", "Key decc6840c2984eedafb77262b5382802"); // had to
 
 function getAcneLevel(file) {
     const fs = require("fs");
-const imageBytes = fs.readFileSync("C:\\Users\\noxbo\\Documents\\GitHub Folders\\acne-helper\\stuff\\images\\acneimage.jpg");
+    const imageBytes = fs.readFileSync("C:\\Users\\noxbo\\Documents\\GitHub Folders\\acne-helper\\stuff\\images\\acneimage.jpg");
 
-stub.PostModelOutputs(
-    {
-        model_id: "acne-classifier",
-        version_id: "",  // This is optional. Defaults to the latest model version.
-        inputs: [
-            {data: {image: {base64: imageBytes}}}
-        ]
-    },
-    metadata,
-    (err, response) => {
-        if (err) {
-            throw new Error(err);
+    stub.PostModelOutputs({
+            model_id: "acne-classifier",
+            version_id: "", // This is optional. Defaults to the latest model version.
+            inputs: [{
+                data: {
+                    image: {
+                        base64: imageBytes
+                    }
+                }
+            }]
+        },
+        metadata,
+        (err, response) => {
+            if (err) {
+                throw new Error(err);
+            }
+
+            if (response.status.code !== 10000) {
+                throw new Error("Post model outputs failed, status: " + response.status.description);
+            }
+
+            // Since we have one input, one output will exist here.
+            const output = response.outputs[0];
+
+            console.log("Predicted concepts:");
+            for (const concept of output.data.concepts) {
+                console.log(concept.name + " " + concept.value);
+            }
         }
-
-        if (response.status.code !== 10000) {
-            throw new Error("Post model outputs failed, status: " + response.status.description);
-        }
-
-        // Since we have one input, one output will exist here.
-        const output = response.outputs[0];
-
-        console.log("Predicted concepts:");
-        for (const concept of output.data.concepts) {
-            console.log(concept.name + " " + concept.value);
-        }
-    }
-);
+    );
 }
 
 /*
@@ -115,4 +120,3 @@ function upload() {
 //var image = new Image();
 //image.src="/images/doctor.png";
 getAcneLevel("test");
-

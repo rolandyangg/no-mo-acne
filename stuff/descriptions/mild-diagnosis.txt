@@ -1,0 +1,10 @@
+<h3>You have Mild Acne!</h3>
+<ul>
+<li>Occasional</li>
+<li>Occurs in isolated parts of the face</li>
+<li>Commonly found on the chin, nose, or forehead</li>
+</ul>
+
+- Papules (small pimples of bumps)
+- Whiteheads (closed pores)
+- Blackheads (open pores)

@@ -1,0 +1,9 @@
+<h3>You have Moderate Acne:</h3>
+<p>Don't worry, this is really common, most people eventually have it go away as they get older.</p>
+<h6>Moderate Acne is usually characterized by...</h6>
+<ul>
+<li>Possible all over the body</li>
+<li>Red, inflamed, potentially painful</li>
+<li>Papules, postules, nodules</li>
+<li>Comedones</li>
+</ul>

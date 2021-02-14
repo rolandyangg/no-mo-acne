@@ -13,7 +13,10 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-const {ClarifaiStub, grpc} = require("clarifai-nodejs-grpc");
+const {
+    ClarifaiStub,
+    grpc
+} = require("clarifai-nodejs-grpc");
 
 const stub = ClarifaiStub.grpc();
 
@@ -29,11 +32,11 @@ app.post('/analyze', upload.array('myFiles[]'), (req, res) => {
     console.log(req.files[0]);
 
     const fs = require("fs");
-    const imageBytes = req.files[0].buffer; // fs.readFileSync("C:\\Users\\noxbo\\Documents\\GitHub Folders\\acne-helper\\stuff\\images\\acneimage.jpg");
+    const imageBytes = req.files[0].buffer; // read image bytes from buffer
 
     stub.PostModelOutputs({
             model_id: "acne-classifier",
-            version_id: "", // This is optional. Defaults to the latest model version.
+            version_id: "",
             inputs: [{
                 data: {
                     image: {
@@ -52,7 +55,6 @@ app.post('/analyze', upload.array('myFiles[]'), (req, res) => {
                 throw new Error("Post model outputs failed, status: " + response.status.description);
             }
 
-            // Since we have one input, one output will exist here.
             const output = response.outputs[0];
 
             console.log("Predicted concepts:");

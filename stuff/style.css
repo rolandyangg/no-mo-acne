@@ -12,13 +12,14 @@
     font-size: 75px;
 }
 .container-fluid-title {
+    position: static;
     padding-top: 3%;
     padding-left: 10%;
     padding-right: 10%;
 }
 .title-image {
     position: static;
-    width: 100%;
+    width: 80%;
     height: 103.5%;
 }
 #map1 {
