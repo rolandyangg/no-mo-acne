@@ -13,7 +13,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <!-- stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -64,28 +64,28 @@
   <!-- INSTRUCTIONS -->
   <div class="instructions">
     <br>
-    <p fstyle=font-size:50px > <b>No Mo Acne is a machine learning-based system that can help you stay on top of acne.
+    <p fstyle=font-size:50px> <b>No Mo Acne is a machine learning-based system that can help you stay on top of acne.
         Simply upload one of
-        your many camera roll selfies below and we can help you determine whether treatment would be beneficial.
+        your many camera roll selfies below and we can help you determine whether skin care treatment would be beneficial.
       </b></p>
   </div>
 
   <!-- FORM -->
   <section id="image">
-  <div class="image-form">
-    <!-- (add back to form later if needed: action="SCRIPT THAT DOES WHATEVER WHEN SUBMIT IS CLICKED" method="post" enctype="text/plain" -->
-    <label style="padding-bottom: 1%">Select your image that you want to upload:</label>
-    <br>
-    <input type="file" name="imageInput" accept="image/*" id="imageInput" style="padding-bottom: 0.5%">
-    <br>
-    <input type="button" onclick="upload()" value="Analyze">
-  </div>
+    <div class="image-form">
+      <!-- (add back to form later if needed: action="SCRIPT THAT DOES WHATEVER WHEN SUBMIT IS CLICKED" method="post" enctype="text/plain" -->
+      <label style="padding-bottom: 1%">Select your image that you want to upload:</label>
+      <br>
+      <input type="file" name="imageInput" accept="image/*" id="imageInput" style="padding-bottom: 0.5%">
+      <br>
+      <input type="button" onclick="upload()" value="Analyze">
+    </div>
 
-  <div class="image-preview" id="imagePreview">
-    <img src="" alt="" class="image-preview__image">
-    <span class="image-preview__default-text">Please Upload An Image</span>
-  </div>
-</section>
+    <div class="image-preview" id="imagePreview">
+      <img src="" alt="" class="image-preview__image">
+      <span class="image-preview__default-text">Please Upload An Image</span>
+    </div>
+  </section>
 
   <br>
 
@@ -116,7 +116,7 @@
     </div>
   </div>
 
-  <!-- MAP
+  <!-- MAP-->
   <br><br>
   <p id="enter-zip"> Enter your zip code to find nearby treatment options.</p>
   <div class="zip-form">
@@ -125,7 +125,6 @@
       <br>
       <input type="text" id="zip">
       <input type="button" id="submit" value="Submit">
-
       <script src="index.js"></script>
     </form>
   </div>
@@ -133,7 +132,7 @@
       <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNn7YpOt1n3gSmIKXD8IfyLWWKVE1ChyQ&libraries=places&callback=initialize"
         async></script>
-  </div> -->
+  </div> 
 
   <!-- SCRIPTS -->
 
