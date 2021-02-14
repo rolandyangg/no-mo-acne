@@ -19,3 +19,6 @@ We walked in only knowing an h1 tag and walked out knowing an h6 tag 😤
 - Back end: Node.js, Express.js, Ajax
 - Other: Clarifai, Google Cloud
 
+## How To Run Locally
+Run the server.js file
+connect to the localhost:port on your browser of choosing
