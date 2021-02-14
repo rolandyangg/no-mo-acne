@@ -21,7 +21,7 @@
   <section id="header">
 
     <!--NAVBAR-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="main-nav">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow" id="main-nav">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
           <img src="images/nomoacnelogo.png" alt="logo" style="width:15%">
@@ -61,13 +61,14 @@
   </section>
 
   <!-- INSTRUCTIONS -->
-  <div class="instructions" id="container-fluid">
+  <div class="instructions shadow" id="container-fluid">
     <div class="row">
       <h1>Your 24/7 Dermatologist</h1>
     </div>
     <div class="row">
-      <p>No Mo Acne is a machine learning-based system that can help you stay on top of acne.
-        Simply upload one of your many camera roll selfies below and we can help you determine the severity of your acne
+      <p>NomoAcne is a machine learning-based system that can help you stay on top of acne.
+        Simply upload one of your many camera roll selfies below and we can instantly help you determine the severity of
+        your acne
         and whether skin care treatment would be beneficial. If you wish to view treatment options, you can use our
         nearby treatment finder using your zip code.
       </p>
@@ -75,74 +76,86 @@
   </div>
 
   <!-- FORM -->
-  <section id="image">
-    <div class="image-form">
-      <!-- (add back to form later if needed: action="SCRIPT THAT DOES WHATEVER WHEN SUBMIT IS CLICKED" method="post" enctype="text/plain" -->
-      <form id="submission-form">
-        <label style="padding-bottom: 1%">For best results use a photo focused on your face as much as possible<br>Select the image that you want to upload (photo formats only: .png, .jpg, etc):</label>
+  <div class="forms" id="container-fluid">
+    <section id="image">
+      <div class="row align-self-center">
+        <div class="col-lg-6 align-self-center">
+          <div class="image-form">
+            <form id="submission-form">
+              <label style="padding-bottom: 1%">To receive the best results, your face should be directed towards the
+                camera and take up most of the photo.<br>
+                <br>Upload an image below and click analyze to get your instant results.</label>
+              <br>
+              <input type="file" name="imageInput" accept="image/*" id="imageInput" style="padding-bottom: 0.5%">
+              <br>
+              <input type="submit" value="Analyze" onclick="">
+            </form>
+          </div>
+        </div>
+
+        <div class="col-lg-6 align-content-center">
+          <div class="image-preview" id="imagePreview">
+            <img src="" alt="" class="image-preview__image">
+            <span class="image-preview__default-text">Image Preview</span>
+          </div>
+        </div>
         <br>
-        <input type="file" name="imageInput" accept="image/*" id="imageInput" style="padding-bottom: 0.5%">
         <br>
-        <input type="submit" value="Analyze" onclick="">
-      </form>
-    </div>
-
-    <div class="image-preview" id="imagePreview">
-      <img src="" alt="" class="image-preview__image">
-      <span class="image-preview__default-text">Please Upload An Image</span>
-    </div>
-
-    <br>
-  </section>
-
-
+      </div>
+    </section>
+  </div>
 
   <!-- RESULTS -->
   <div class="results">
-    <ul class="nav nav-pills mb-3" id="pills-tab-nav" role="tablist">
-      <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="pills-results-tab" data-bs-toggle="pill" data-bs-target="#pills-results"
-          type="button" role="tab" aria-controls="pills-results" aria-selected="true">Results</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-diagnosis-tab" data-bs-toggle="pill" data-bs-target="#pills-diagnosis"
-          type="button" role="tab" aria-controls="pills-diagnosis" aria-selected="false">Diagnosis</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-treatment-tab" data-bs-toggle="pill" data-bs-target="#pills-treatment"
-          type="button" role="tab" aria-controls="pills-treatment" aria-selected="false">Treatment</button>
-      </li>
-    </ul>
+    <div id="container-fluid">
+      <ul class="nav nav-pills mb-5" id="pills-tab-nav" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="pills-results-tab" data-bs-toggle="pill" data-bs-target="#pills-results"
+            type="button" role="tab" aria-controls="pills-results" aria-selected="true">Results</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="pills-diagnosis-tab" data-bs-toggle="pill" data-bs-target="#pills-diagnosis"
+            type="button" role="tab" aria-controls="pills-diagnosis" aria-selected="false">Diagnosis</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="pills-treatment-tab" data-bs-toggle="pill" data-bs-target="#pills-treatment"
+            type="button" role="tab" aria-controls="pills-treatment" aria-selected="false">Treatment</button>
+        </li>
+      </ul>
 
-    <div class="tab-content" id="pills-tabContent">
-      <div class="tab-pane fade show active" id="pills-results" role="tabpanel" aria-labelledby="pills-results-tab">
-        <h6>Analyze an image to find out your results!</h6>
-      </div>
-      <div class="tab-pane fade" id="pills-diagnosis" role="tabpanel" aria-labelledby="pills-diagnosis-tab">
-        <h6>Analyze an image to find out your diagnosis!</h6>
-      </div>
-      <div class="tab-pane fade" id="pills-treatment" role="tabpanel" aria-labelledby="pills-treatment-tab">
-        <h6>Analyze an image to find out your personal treatment plan!</h6>
+      <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-results" role="tabpanel" aria-labelledby="pills-results-tab">
+          <h6>Analyze an image to find out your results!</h6>
+        </div>
+        <div class="tab-pane fade" id="pills-diagnosis" role="tabpanel" aria-labelledby="pills-diagnosis-tab">
+          <h6>Analyze an image to find out your diagnosis!</h6>
+        </div>
+        <div class="tab-pane fade" id="pills-treatment" role="tabpanel" aria-labelledby="pills-treatment-tab">
+          <h6>Analyze an image to find out your personal treatment plan!</h6>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- MAP -->
-  <br><br>
-  <p id="enter-zip"> Enter your zip code to find nearby treatment options.</p>
-  <div class="zip-form">
-    <form>
-      <label for="zip" style="padding-bottom: 0.5%">Zip Code:</label>
-      <br>
-      <input type="text" id="zip">
-      <input type="button" id="submit" value="Submit">
-      <script src="index.js"></script>
-    </form>
-  </div>
-  <div id="map1">
+  <div class="container-fluid" style="background-color:rgb(247, 247, 247)">
+    <br><br>
+    <p id="enter-zip">Enter your zip code and click submit to find treatment centers near you:</p>
+    <div class="zip-form">
+      <form>
+        <label for="zip" style="padding-bottom: 0.5%">Zip Code:</label>
+        <br>
+        <input type="text" id="zip">
+        <input type="button" id="submit" value="Submit">
+        <script src="index.js"></script>
+      </form>
+    </div>
+    <br><br>
+    <div id="map1">
       <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNn7YpOt1n3gSmIKXD8IfyLWWKVE1ChyQ&libraries=places&callback=initialize"
         async></script>
+    </div>
   </div>
 
   <!-- popper -->
@@ -160,9 +173,9 @@
 
 </body>
 
-<footer class="bg-light text-center txt-lg-start">
+<footer class="bg-light text-center txt-lg-start shadow">
   <div class="text-center p-3" style="background-color:#fff">
-    @ 2021 GunnHacks
+    @ 2021 NomoAcne | GunnHacks
   </div>
 </footer>
 

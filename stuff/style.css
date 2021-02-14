@@ -1,7 +1,7 @@
 /*____________Home_____________*/
 #header {
     background-color: #2D9BFF;
-    width: 99%;
+    width: 100%;
 }
 .body {
     background-color: rgb(255, 255, 255)
@@ -22,9 +22,7 @@
     height: 600px;
     width: 100%;
 }
-.instructions {
-    padding: 0% 10%;
-}
+
 #image {
     padding: 0% 10%;
 }
@@ -71,6 +69,10 @@
 
 #main-nav {
     padding: 0% 5%;
+}
+
+.forms {
+    background-color: rgb(247, 247, 247);
 }
 
 /*____________About_____________*/
@@ -160,4 +162,3 @@
     color: black;
     margin: auto;
 }
-

@@ -1,19 +1,11 @@
 <h3>You have severe acne.</h3>
-<h6>Sever acne is characterized by...</h6>
+<h6>Severe acne is characterized by...</h6>
 <ul>
     <li>Many breakouts across multiple body parts such as the face, chest, and back.</li>
     <li>Being unaffected by over the counter treatments.</li>
     <li>Redness and inflammation in multiple areas of your body</li>
     <li>Extending deep into the skin</li>
+    <li>Many occurences of cysts and nodules</li>
     <li>Being noticeably painful.</li>
-    <li>Scarring</li>
+    <li>Acne Scars</li>
 </ul>
-
-
-- Many breakouts, covering face, chest, and back
-- Extends deep into the skin
-- Painful
-
-- Cysts
-- Nodules
-- Acne scars
