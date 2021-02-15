@@ -1,11 +1,16 @@
 # nomoacne.online 
 *"no more acne online"*
 
-GunnHacks 2021 Project
+![logo](nomoacnethumbnail.png)
+![home screen](landingpagenomoacne.png)
+![test case](acneresult1.png)
+![map feature](mapderma.png)
 
-A website that uses machine learning and image processing to diagnose and help treat people with acne.
+**GunnHacks 2021 Project**
 
-We walked in only knowing an h1 tag and walked out knowing an h6 tag 😤
+- A website that uses machine learning and image processing to diagnose and help treat people with acne.
+
+- We walked in only knowing an h1 tag and walked out knowing an h6 tag 😤
 
 ## Authors
 - Ahaan Limaye @ahaanlimaye
@@ -19,3 +24,9 @@ We walked in only knowing an h1 tag and walked out knowing an h6 tag 😤
 - Back end: Node.js, Express.js, Ajax
 - Other: Clarifai, Google Cloud
 
+## How To Run Locally
+1. Run the server.js file
+2. connect to the localhost:port on your browser of choosing
+
+## Webpage
+www.nomoacne.com
