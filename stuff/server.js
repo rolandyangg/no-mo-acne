@@ -6,7 +6,7 @@ const upload = multer({
 });
 
 const app = express();
-const port = 300;
+const port = 80;
 
 app.use(express.static('stuff'));
 app.use(bodyParser.urlencoded({
