@@ -30,3 +30,8 @@
 
 ## Webpage
 www.nomoacne.com
+
+## Awards at GunnHacks 7.0
+- 2nd Overall
+- Best Domain Registered with Domain.com
+- Top 10
