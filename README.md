@@ -31,10 +31,10 @@
 ## Webpage
 www.nomoacne.com
 
+## Devpost
+https://devpost.com/software/nomoacne
+
 ## Awards at GunnHacks 7.0
 - 2nd Overall
 - Best Domain Registered with Domain.com
 - Top 10
-
-## Devpost
-https://devpost.com/software/nomoacne
