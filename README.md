@@ -29,7 +29,7 @@
 2. connect to the localhost:port on your browser of choosing
 
 ## Webpage
-www.nomoacne.com
+www.nomoacne.online
 
 ## Devpost
 https://devpost.com/software/nomoacne
