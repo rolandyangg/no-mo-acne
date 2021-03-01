@@ -14,7 +14,7 @@
 
 ## Authors
 - Ahaan Limaye @ahaanlimaye
-- Aryan Pal @aryanpal132
+- Aryan Pal @aryanpal134
 - Eric Lin @erice04
 - Roland Yang @whyroland
 
